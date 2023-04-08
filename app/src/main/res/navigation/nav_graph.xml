@@ -20,5 +20,9 @@
         android:label="fragment_full_description"
         tools:layout="@layout/fragment_full_description" >
 
+        <argument android:name="imageURL"
+            app:argType="string" />
+        <argument android:name="textView"
+            app:argType="string" />
     </fragment>
 </navigation>

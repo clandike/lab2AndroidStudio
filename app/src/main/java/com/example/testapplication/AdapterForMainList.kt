@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.testapplication.databinding.ItemCarBinding
 
 class AdapterForMainList(val onClick: (model: MyCar, position: Int) -> Unit) :
@@ -11,12 +12,17 @@ class AdapterForMainList(val onClick: (model: MyCar, position: Int) -> Unit) :
     private val list = ArrayList<MyCar>()
 
     inner class CarViewHolder(val binding: ItemCarBinding) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("CheckResult")
         fun bindItem(myCar: MyCar, position: Int) {
             binding.tvName.text = myCar.name
             binding.tvDesc.text = myCar.desc
             binding.btn.setOnClickListener {
                 onClick(myCar, position)
             }
+
+            Glide.with(binding.imageView.context)
+                .load(myCar.urlImage)
+                .into(binding.imageView)
         }
     }
 

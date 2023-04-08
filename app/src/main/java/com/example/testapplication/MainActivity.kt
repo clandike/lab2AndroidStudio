@@ -14,9 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding) {
-
         }
-
-
     }
 }
